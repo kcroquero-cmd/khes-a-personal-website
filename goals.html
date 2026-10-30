@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Goals | Khesia Roquero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="goals.css">
+    <style>
+
+        /* =========================
+           GLOBAL DESIGN
+        ========================= */
+
+        :root {
+            --orange: #e8894b;
+            --orange-dark: #b85e2d;
+            --cream: #fffaf4;
+            --white: #ffffff;
+            --dark: #382d27;
+            --muted: #83736b;
+            --peach: #ffeadb;
+            --border: #f0dfd0;
+            --rose: #e7a6a9;
+            --green: #668c70;
+            --purple: #a37cb5;
+            --shadow: 0 14px 38px rgba(91, 57, 37, 0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "DM Sans", sans-serif;
+            color: var(--dark);
+            background:
+                radial-gradient(
+                    circle at 8% 10%,
+                    rgba(255, 199, 164, 0.32),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 95% 45%,
+                    rgba(231, 166, 169, 0.19),
+                    transparent 26%
+                ),
+                radial-gradient(
+                    circle at 10% 85%,
+                    rgba(211, 191, 234, 0.20),
+                    transparent 25%
+                ),
+                var(--cream);
+            overflow-x: hidden;
+        }
+
+        body,
+        button,
+        a {
+            font-family: "DM Sans", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--orange-dark);
+            outline-offset: 4px;
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           FLOATING DECORATIONS
+        ========================= */
+
+        .floating-decoration {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            color: rgba(232, 137, 75, 0.23);
+            animation: float 6s ease-in-out infinite;
+        }
+        .decoration-one {
+            top: 24%;
+            left: 3%;
+            font-size: 30px;
+        }
+
+        .decoration-two {
+            top: 62%;
+            right: 4%;
+            color: rgba(163, 124, 181, 0.24);
+            font-size: 38px;
+            animation-delay: 1.5s;
+        }
+
+        .decoration-three {
+            top: 83%;
+            left: 7%;
+            color: rgba(102, 140, 112, 0.22);
+            font-size: 25px;
+            animation-delay: 2s;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: relative;
+            overflow: hidden;
+            padding: 38px 16px 33px;
+            text-align: center;
+            color: white;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255,255,255,0.24),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    120deg,
+                    #bd7657,
+                    #e99b7b,
+                    #d8a2a9,
+                    #bda8d5
+                );
+        }
+
+        header::before,
+        header::after {
+            content: "✦";
+            position: absolute;
+            color: rgba(255,255,255,0.48);
+            font-size: 40px;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        header::before {
+            top: 18px;
+            left: 10%;
+        }
+
+        header::after {
+            right: 12%;
+            bottom: 15px;
+            animation-delay: 1s;
+        }
+
+        .header-badge {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 7px 15px;
+            border: 1px solid rgba(255,255,255,0.48);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.16);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 600;
+            text-shadow: 0 3px 14px rgba(88, 49, 45, 0.15);
+        }
+
+        header h1 span {
+            color: #fff1d9;
+            font-style: italic;
+        }
+        .header-subtitle {
+            max-width: 550px;
+            margin: 10px auto 0;
+            color: rgba(255,255,255,0.94);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 250, 244, 0.94);
+            backdrop-filter: blur(15px);
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 11px 8px;
+            list-style: none;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav li > a,
+        .logout-button {
+            display: block;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 30px;
+            background: transparent;
+            color: #6f5b4f;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        nav li > a:hover,
+        nav li > a.active,
+        .dropbtn[aria-expanded="true"] {
+            color: var(--orange-dark);
+            background: var(--peach);
+        }
+
+        .logout-button {
+            color: white;
+            background: var(--orange);
+        }
+
+        .logout-button:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 7px);
+            left: 0;
+            min-width: 205px;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-content.show {
+            display: block;
+            animation: fadeUp 0.2s ease both;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a.active {
+            color: var(--orange-dark);
+            background: var(--peach);
+        }
+
+        /* =========================
+           MAIN INTRODUCTION
+        ========================= */
+
+        main {
+            padding: 60px 0 70px;
+        }
+
+        .goals-intro {
+            max-width: 760px;
+            margin: 0 auto 40px;
+            text-align: center;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 17px;
+            padding: 9px 17px;
+            border: 1px solid #f0d7c2;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.8);
+            color: var(--orange-dark);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.7px;
+        }
+
+        .goals-intro h2 {
+            margin-bottom: 18px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.13;
+        }
+
+        .goals-intro h2 span {
+            display: block;
+            color: var(--orange);
+            font-style: italic;
+        }
+        .goals-intro p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.95;
+        }
+
+        .intro-heart {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--rose);
+            font-size: 1.7rem;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        /* =========================
+           DREAM CAREER BANNER
+        ========================= */
+
+        .dream-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            overflow: hidden;
+            margin-bottom: 45px;
+            padding: 34px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 28px;
+            color: white;
+            background: linear-gradient(
+                115deg,
+                #bd683e,
+                #e8894b 55%,
+                #f0b28a
+            );
+            box-shadow: 0 16px 38px rgba(184, 94, 45, 0.18);
+            animation: fadeUp 0.7s ease 0.1s both;
+        }
+
+        .dream-banner::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: 70px;
+            width: 270px;
+            height: 270px;
+            border: 1px solid rgba(255,255,255,0.24);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 25px rgba(255,255,255,0.05),
+                0 0 0 50px rgba(255,255,255,0.04);
+        }
+
+        .dream-text {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+
+        .dream-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .dream-text h3 {
+            margin-bottom: 12px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.65rem, 4vw, 2.5rem);
+        }
+
+        .dream-text p {
+            max-width: 600px;
+            color: rgba(255,255,255,0.93);
+            font-size: 0.9rem;
+            line-height: 1.9;
+        }
+
+        .dream-button {
+            display: inline-block;
+            margin-top: 19px;
+            padding: 12px 18px;
+            border: 1px solid rgba(255,255,255,0.55);
+            border-radius: 30px;
+            color: white;
+            background: rgba(255,255,255,0.15);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .dream-button:hover {
+            color: var(--orange-dark);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .dream-icon {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 105px;
+            height: 105px;
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 32px;
+            background: rgba(255,255,255,0.17);
+            font-size: 3.2rem;
+            animation: planeFloat 4s ease-in-out infinite;
+        }
+
+        /* =========================
+           GOALS SECTION
+        ========================= */
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 23px;
+        }
+
+        .section-heading h3 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .goal-card {
+            --accent: var(--orange);
+
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.88);
+            box-shadow: 0 7px 25px rgba(91,57,37,0.055);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            animation: fadeUp 0.65s ease both;
+        }
+        .goal-card:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .goal-card:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .goal-card:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-6px);
+            border-color: #e8c3a7;
+            box-shadow: var(--shadow);
+        }
+
+        .goal-card.short-term {
+            --accent: #bf762e;
+            --icon-bg: #fff0dc;
+        }
+
+        .goal-card.long-term {
+            --accent: #51866b;
+            --icon-bg: #e4f3e8;
+        }
+
+        .goal-card.personal {
+            --accent: #a16eb2;
+            --icon-bg: #f2e6f8;
+        }
+
+        .goal-card.career {
+            --accent: #cf685b;
+            --icon-bg: #ffebe7;
+        }
+
+        .goal-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 24px 24px 18px;
+        }
+
+        .goal-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 61px;
+            height: 61px;
+            border: 1px solid rgba(0,0,0,0.025);
+            border-radius: 20px;
+            color: var(--accent);
+            background: var(--icon-bg);
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .goal-card:hover .goal-icon {
+            transform: rotate(-7deg) scale(1.06);
+        }
+
+        .goal-label {
+            margin-bottom: 5px;
+            color: var(--accent);
+            font-size: 0.69rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .goal-top h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.35rem;
+        }
+
+        .goal-content {
+            padding: 0 24px 23px;
+        }
+
+        .goal-description {
+            min-height: 78px;
+            color: var(--muted);
+            font-size: 0.89rem;
+            line-height: 1.85;
+        }
+
+        .goal-divider {
+            height: 1px;
+            margin: 18px 0;
+            background: var(--border);
+        }
+
+        .goal-progress-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.76rem;
+        }
+
+        .goal-progress-heading span:first-child {
+            color: var(--muted);
+        }
+
+        .goal-progress-heading strong {
+            color: var(--accent);
+        }
+
+        .progress-track {
+            height: 8px;
+            overflow: hidden;
+            border-radius: 30px;
+            background: #f2e9e1;
+        }
+
+        .progress-fill {
+            width: var(--progress);
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(
+                90deg,
+                var(--accent),
+                color-mix(in srgb, var(--accent), white 25%)
+            );
+            transform-origin: left;
+            animation: progressIn 1.1s ease both;
+        }
+
+        .goal-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px 15px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            color: var(--dark);
+            background: #fffaf5;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .goal-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .toggle-icon {
+            transition: transform 0.25s;
+        }
+
+        .goal-toggle[aria-expanded="true"] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .goal-details {
+            display: none;
+            padding: 18px 2px 2px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.85;
+        }
+
+        .goal-details.open {
+            display: block;
+            animation: fadeUp 0.25s ease both;
+        }
+
+        .goal-details h5 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 0.86rem;
+        }
+
+        .goal-details ul {
+            padding-left: 4px;
+            list-style: none;
+        }
+
+        .goal-details li {
+            margin: 9px 0;
+        }
+
+        .goal-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            cursor: pointer;
+        }
+
+        .goal-check input {
+            width: 16px;
+            height: 16px;
+            margin-top: 5px;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .goal-check input:checked + span {
+            color: #9b918a;
+            text-decoration: line-through;
+        }
+
+        .check-summary {
+            margin-top: 13px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: var(--icon-bg);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* =========================
+           OVERALL PROGRESS
+        ========================= */
+
+        .overall-progress {
+            margin-top: 40px;
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: 23px;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 7px 24px rgba(91,57,37,0.04);
+        }
+        .overall-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 14px;
+        }
+
+        .overall-top h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.45rem;
+        }
+
+        .overall-top strong {
+            color: var(--orange-dark);
+            font-size: 1rem;
+        }
+
+        .overall-progress .progress-track {
+            height: 12px;
+        }
+
+        .overall-progress .progress-fill {
+            background: linear-gradient(90deg, #e8894b, #e7a6a9, #a37cb5);
+        }
+
+        .overall-note {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           MOTIVATIONAL SECTION
+        ========================= */
+
+        .motivation {
+            position: relative;
+            overflow: hidden;
+            margin-top: 35px;
+            padding: 40px 25px;
+            border: 1px solid #f1daca;
+            border-radius: 27px;
+            background: linear-gradient(
+                135deg,
+                #fff0e4,
+                #fff9f5,
+                #f7edfa
+            );
+            text-align: center;
+        }
+
+        .motivation::before {
+            content: "“";
+            position: absolute;
+            top: -24px;
+            left: 20px;
+            color: rgba(232,137,75,0.15);
+            font-family: Georgia, serif;
+            font-size: 150px;
+            pointer-events: none;
+        }
+
+        .motivation-icon {
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--orange);
+            font-size: 2.1rem;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .motivation h3 {
+            position: relative;
+            margin-bottom: 14px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+        }
+
+        .motivation p {
+            position: relative;
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .motivation strong {
+            color: var(--orange-dark);
+        }
+
+        .signature {
+            margin-top: 17px;
+            color: #a16eb2;
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 90;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            background: var(--orange);
+            box-shadow: 0 6px 18px rgba(184,94,45,0.25);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            background: var(--orange-dark);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px 15px;
+            border-top: 1px solid var(--border);
+            background: rgba(255,255,255,0.55);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--orange-dark);
+        }
+
+        .footer-heart {
+            color: #df8d9d;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-15px) rotate(8deg);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.45;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.18);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.13);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes planeFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(3deg);
+            }
+        }
+
+        @keyframes progressIn {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* =========================
+           MOBILE DESIGN
+        ========================= */
+
+        @media (max-width: 760px) {
+            nav ul {
+                gap: 3px;
+                padding: 9px 4px;
+            }
+
+            nav li > a,
+            .logout-button {
+                padding: 9px 10px;
+                font-size: 0.68rem;
+            }
+
+            main {
+                padding: 42px 0 50px;
+            }
+
+            .goal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .goal-description {
+                min-height: 0;
+            }
+
+            .dream-banner {
+                padding: 26px 22px;
+            }
+
+            .dream-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 23px;
+                font-size: 2.2rem;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            header {
+                padding: 30px 13px;
+            }
+
+            .dream-banner {
+                gap: 12px;
+                padding: 22px 17px;
+            }
+
+            .dream-icon {
+                width: 49px;
+                height: 49px;
+                border-radius: 15px;
+                font-size: 1.55rem;
+            }
+
+            .goal-top {
+                padding: 20px 18px 16px;
+            }
+
+            .goal-content {
+                padding: 0 18px 20px;
+            }
+
+            .overall-progress {
+                padding: 20px;
+            }
+
+            .overall-top {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .motivation {
+                padding: 32px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- DECORATIVE SYMBOLS -->
+    <span class="floating-decoration decoration-one" aria-hidden="true">✦</span>
+    <span class="floating-decoration decoration-two" aria-hidden="true">♡</span>
+    <span class="floating-decoration decoration-three" aria-hidden="true">✿</span>
+
+    <!-- HEADER -->
+    <header id="home">
+        <div class="header-badge">MY PERSONAL JOURNEY ✦</div>
+
+        <h1>Welcome to <span>My Personal Website</span></h1>
+
+        <p class="header-subtitle">
+            Dream with purpose, grow with confidence, and make every
+            little step count. ♡
+        </p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+
+            <li class="dropdown">
+                <a href="#about-menu"
+                   class="dropbtn"
+                   id="aboutButton"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    ABOUT ▾
+                </a>
+
+                <div class="dropdown-content" id="aboutMenu">
+                    <a href="skills.html">Skills I'm Developing</a>
+                    <a href="goals.html" class="active"
+                       aria-current="page">My Goals</a>
+                    <a href="funfacts.html">Fun Facts About Me</a>
+                </div>
+            </li>
+
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+
+            <li>
+                <button type="button"
+                        class="logout-button"
+                        id="logoutButton">
+                    LOG OUT
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- INTRODUCTION -->
+        <section class="goals-intro">
+            <span class="eyebrow">✦ MY DREAMS, MY FUTURE ✦</span>
+
+            <h2>
+                Small Steps,
+                <span>Big Dreams</span>
+            </h2>
+
+            <p>
+                Every beautiful journey begins with a dream and the
+                courage to take the first step. As a student, I want
+                to keep learning, improve myself, and build a future
+                that makes me and my family proud. I believe that
+                progress comes from patience, determination, and
+                never giving up on what matters to me.
+            </p>
+
+            <span class="intro-heart" aria-hidden="true">♡</span>
+        </section>
+
+        <!-- DREAM CAREER -->
+        <section class="dream-banner" id="career-dream">
+            <div class="dream-text">
+                <span class="dream-label">✦ MY BIGGEST DREAM ✦</span>
+
+                <h3>One Day, I'll Fly High!</h3>
+
+                <p>
+                    My dream is to become a successful flight attendant.
+                    I want to discover new places, meet people from
+                    different cultures, provide excellent service,
+                    and create wonderful experiences for passengers.
+                    Every lesson I learn today is another step toward
+                    the future I imagine.
+                </p>
+
+                <a href="#my-goals" class="dream-button">
+                    Explore My Goals ↓
+                </a>
+            </div>
+
+            <div class="dream-icon" aria-hidden="true">✈</div>
+        </section>
+
+        <!-- GOAL CARDS -->
+        <section id="my-goals" aria-labelledby="goals-heading">
+            <div class="section-heading">
+                <div>
+                    <h3 id="goals-heading">My Goals in Life</h3>
+                    <p>Four dreams. One determined heart. ♡</p>
+                </div>
+
+                <p>Open a card to see your action checklist.</p>
+            </div>
+
+            <div class="goal-grid">
+
+                <!-- SHORT-TERM GOALS -->
+                <article class="goal-card short-term">
+                    <div class="goal-top">
+                        <div class="goal-icon" aria-hidden="true">💻</div>
+
+                        <div>
+                            <p class="goal-label">GOAL 01</p>
+                            <h4>Short-Term Goals</h4>
+                        </div>
+                    </div>
+
+                    <div class="goal-content">
+                        <p class="goal-description">
+                            I want to improve my coding skills, create
+                            better websites, complete my school tasks,
+                            and become more confident using technology.
+                        </p>
+
+                        <div class="goal-divider"></div>
+
+                        <div class="goal-progress-heading">
+                            <span>Learning journey</span>
+                            <strong>45% target</strong>
+                        </div>
+
+                        <div class="progress-track"
+                             role="img"
+                             aria-label="Illustrative progress target: 45 percent">
+                            <div class="progress-fill"
+                                 style="--progress: 45%"></div>
+                        </div>
+
+                        <button class="goal-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-controls="details1">
+                            <span>My action checklist</span>
+                            <span class="toggle-icon">⌄</span>
+                        </button>
+
+                        <div class="goal-details" id="details1">
+                            <h5>Small steps I can take:</h5>
+
+                            <ul>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Practice HTML, CSS, and JavaScript.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Build and improve my website projects.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Finish school activities on time.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Learn from errors instead of giving up.</span>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <p class="check-summary" aria-live="polite">
+                                0 of 4 steps completed
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- LONG-TERM GOALS -->
+                <article class="goal-card long-term">
+                    <div class="goal-top">
+                        <div class="goal-icon" aria-hidden="true">🌍</div>
+
+                        <div>
+                            <p class="goal-label">GOAL 02</p>
+                            <h4>Long-Term Goals</h4>
+                        </div>
+                    </div>
+
+                    <div class="goal-content">
+                        <p class="goal-description">
+                            I aspire to graduate from college, build a
+                            successful career, explore different places,
+                            and create a stable and happy future for
+                            myself and my family.
+                        </p>
+
+                        <div class="goal-divider"></div>
+
+                        <div class="goal-progress-heading">
+                            <span>My future journey</span>
+                            <strong>25% target</strong>
+                        </div>
+
+                        <div class="progress-track"
+                             role="img"
+                             aria-label="Illustrative progress target: 25 percent">
+                            <div class="progress-fill"
+                                 style="--progress: 25%"></div>
+                        </div>
+
+                        <button class="goal-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-controls="details2">
+                            <span>My action checklist</span>
+                            <span class="toggle-icon">⌄</span>
+                        </button>
+
+                        <div class="goal-details" id="details2">
+                            <h5>Small steps I can take:</h5>
+
+                            <ul>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Work toward completing my education.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Research my future career options.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Develop communication and service skills.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Save money and plan for future needs.</span>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <p class="check-summary" aria-live="polite">
+                                0 of 4 steps completed
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PERSONAL DEVELOPMENT -->
+                <article class="goal-card personal">
+                    <div class="goal-top">
+                        <div class="goal-icon" aria-hidden="true">🌷</div>
+
+                        <div>
+                            <p class="goal-label">GOAL 03</p>
+                            <h4>Personal Development</h4>
+                        </div>
+                    </div>
+
+                    <div class="goal-content">
+                        <p class="goal-description">
+                            I want to strengthen my confidence,
+                            communication, teamwork, and problem-solving
+                            skills while becoming a more responsible,
+                            kind, and independent person.
+                        </p>
+
+                        <div class="goal-divider"></div>
+
+                        <div class="goal-progress-heading">
+                            <span>Personal growth</span>
+                            <strong>50% target</strong>
+                        </div>
+
+                        <div class="progress-track"
+                             role="img"
+                             aria-label="Illustrative progress target: 50 percent">
+                            <div class="progress-fill"
+                                 style="--progress: 50%"></div>
+                        </div>
+
+                        <button class="goal-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-controls="details3">
+                            <span>My action checklist</span>
+                            <span class="toggle-icon">⌄</span>
+                        </button>
+
+                        <div class="goal-details" id="details3">
+                            <h5>Small steps I can take:</h5>
+
+                            <ul>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Practice speaking clearly and confidently.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Listen to others with respect.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Participate in class and group activities.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Reflect on my progress and learn from challenges.</span>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <p class="check-summary" aria-live="polite">
+                                0 of 4 steps completed
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CAREER GOALS -->
+                <article class="goal-card career">
+                    <div class="goal-top">
+                        <div class="goal-icon" aria-hidden="true">🎓</div>
+
+                        <div>
+                            <p class="goal-label">GOAL 04</p>
+                            <h4>Career Goals</h4>
+                        </div>
+                    </div>
+
+                    <div class="goal-content">
+                        <p class="goal-description">
+                            My goal is to finish college and prepare for
+                            a meaningful career. I want to develop the
+                            professionalism, communication, and service
+                            skills needed for my dream of becoming a
+                            flight attendant.
+                        </p>
+
+                        <div class="goal-divider"></div>
+
+                        <div class="goal-progress-heading">
+                            <span>Career preparation</span>
+                            <strong>30% target</strong>
+                        </div>
+
+                        <div class="progress-track"
+                             role="img"
+                             aria-label="Illustrative progress target: 30 percent">
+                            <div class="progress-fill"
+                                 style="--progress: 30%"></div>
+                        </div>
+
+                        <button class="goal-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-controls="details4">
+                            <span>My action checklist</span>
+                            <span class="toggle-icon">⌄</span>
+                        </button>
+
+                        <div class="goal-details" id="details4">
+                            <h5>Small steps I can take:</h5>
+
+                            <ul>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Focus on my studies and finish my degree.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Improve my English and speaking skills.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Practice interview and customer-service skills.</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="goal-check">
+                                        <input type="checkbox">
+                                        <span>Research airline qualifications and job openings.</span>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <p class="check-summary" aria-live="polite">
+                                0 of 4 steps completed
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE CHECKLIST PROGRESS -->
+        <section class="overall-progress"
+                 aria-labelledby="overall-heading">
+
+            <div class="overall-top">
+                <h3 id="overall-heading">My Action Plan Progress ✨</h3>
+                <strong id="overallPercent">0% completed</strong>
+            </div>
+
+            <div class="progress-track"
+                 role="progressbar"
+                 id="overallBar"
+                 aria-label="Overall action checklist progress"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow="0">
+                <div class="progress-fill"
+                     id="overallFill"
+                     style="--progress: 0%"></div>
+            </div>
+
+            <p class="overall-note" id="overallMessage" aria-live="polite">
+                Every small action brings you closer to your dreams.
+                Check off your steps above to track your progress!
+            </p>
+        </section>
+
+        <!-- MOTIVATION -->
+        <section class="motivation">
+            <div class="motivation-icon" aria-hidden="true">♡</div>
+
+            <h3>A Note to My Future Self</h3>
+
+            <p>
+                Dear future me, never forget how far you have come
+                or why you started. There will be challenges, but
+                keep learning, stay patient, and believe in your
+                abilities. You do not need to have everything figured
+                out today. Just keep taking one meaningful step at a
+                time. Your hard work and determination can help you
+                create a future you are proud of.
+
+                <br><br>
+
+                <strong>My dreams are worth the effort!</strong>
+            </p>
+
+            <div class="signature">With love, Khesia ♡</div>
+        </section>
+
+    </main>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top"
+            type="button"
+            id="backToTop"
+            aria-label="Back to top"
+            title="Back to top">
+        ↑
+    </button>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            Made with <span class="footer-heart">♥</span>
+            and determination by <strong>Khesia Roquero</strong>
+        </p>
+
+        <p>
+            &copy; <span id="year"></span> My Personal Website.
+            Keep dreaming and growing!
+        </p>
+    </footer>
+
+    <script>
+        // =========================
+        // FOOTER YEAR
+        // =========================
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        // =========================
+        // ABOUT DROPDOWN
+        // Supports mouse, touch, and keyboard.
+        // =========================
+
+        const aboutButton = document.getElementById("aboutButton");
+        const aboutMenu = document.getElementById("aboutMenu");
+
+        aboutButton.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const isOpen =
+                aboutButton.getAttribute("aria-expanded") === "true";
+
+            aboutButton.setAttribute("aria-expanded", String(!isOpen));
+            aboutMenu.classList.toggle("show", !isOpen);
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!event.target.closest(".dropdown")) {
+                aboutMenu.classList.remove("show");
+                aboutButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                aboutMenu.classList.remove("show");
+                aboutButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+
+        // =========================
+        // EXPAND AND COLLAPSE GOAL CARDS
+        // =========================
+
+        document.querySelectorAll(".goal-toggle").forEach(function(button) {
+            button.addEventListener("click", function() {
+                const detailsId = button.getAttribute("aria-controls");
+                const details = document.getElementById(detailsId);
+
+                const isOpen =
+                    button.getAttribute("aria-expanded") === "true";
+
+                button.setAttribute("aria-expanded", String(!isOpen));
+                details.classList.toggle("open", !isOpen);
+            });
+        });
+
+
+        // =========================
+        // INTERACTIVE CHECKLIST
+        // Updates each card and the overall progress.
+        // =========================
+
+        const checkboxes = Array.from(
+            document.querySelectorAll(".goal-check input")
+        );
+
+        const overallPercent = document.getElementById("overallPercent");
+        const overallBar = document.getElementById("overallBar");
+        const overallFill = document.getElementById("overallFill");
+        const overallMessage = document.getElementById("overallMessage");
+
+        function updateProgress() {
+            let completed = 0;
+
+            document.querySelectorAll(".goal-card").forEach(function(card) {
+                const cardCheckboxes = Array.from(
+                    card.querySelectorAll(".goal-check input")
+                );
+
+                const cardCompleted = cardCheckboxes.filter(
+                    function(checkbox) {
+                        return checkbox.checked;
+                    }
+                ).length;
+
+                completed += cardCompleted;
+
+                const summary = card.querySelector(".check-summary");
+
+                if (summary) {
+                    summary.textContent =
+                        cardCompleted + " of " +
+                        cardCheckboxes.length + " steps completed";
+                }
+            });
+
+            const total = checkboxes.length;
+
+            const percent = total > 0
+                ? Math.round((completed / total) * 100)
+                : 0;
+
+            overallPercent.textContent = percent + "% completed";
+            overallFill.style.setProperty("--progress", percent + "%");
+
+            overallBar.setAttribute("aria-valuenow", String(percent));
+
+            if (percent === 100) {
+                overallMessage.textContent =
+                    "Amazing work! You completed every action step. " +
+                    "Celebrate your progress and set your next goal!";
+            } else if (percent >= 50) {
+                overallMessage.textContent =
+                    "You are making progress! Keep going, one step at a time.";
+            } else if (percent > 0) {
+                overallMessage.textContent =
+                    "Great start! Every completed step brings you closer " +
+                    "to your dreams.";
+            } else {
+                overallMessage.textContent =
+                    "Every small action brings you closer to your dreams. " +
+                    "Check off your steps above to track your progress!";
+            }
+        }
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener("change", updateProgress);
+        });
+
+        updateProgress();
+        // =========================
+        // BACK TO TOP BUTTON
+        // =========================
+
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function() {
+            backToTop.classList.toggle(
+                "visible",
+                window.scrollY > 350
+            );
+        });
+
+        backToTop.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+
+        // =========================
+        // LOGOUT CONFIRMATION
+        // =========================
+
+        document.getElementById("logoutButton")
+            .addEventListener("click", function() {
+
+                const confirmed = window.confirm(
+                    "Are you sure you want to log out?"
+                );
+
+                if (!confirmed) {
+                    return;
+                }
+
+                try {
+                    localStorage.removeItem("isLoggedIn");
+                } catch (error) {
+                    // Redirect still works if browser storage is unavailable.
+                }
+
+                window.location.href = "login.html";
+            });
+    </script>
+
+</body>
+</html>

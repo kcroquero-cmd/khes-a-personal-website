@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills I'm Developing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Personal Website</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT</a>
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <li>
+            <a href="#" class="logout-button"
+               onclick="confirmLogout(event)">LOG OUT</a>
+        </li>
+    </ul>
+</nav>
+
+<section id="section2"></section>
+
+<section id="drop">
+
+    <h2>Skills I'm Developing</h2>
+
+    <p>
+        As a student, I'm actively developing a diverse set of skills
+        that reflect my passions in technology and beyond.
+    </p>
+
+    <section id="skills">
+
+        <!-- TAB BUTTONS -->
+        <div class="tab">
+
+            <button type="button" class="tablinks"
+                    onclick="openTab(event, 'IS')">
+                Information Systems
+            </button>
+
+            <button type="button" class="tablinks"
+                    onclick="openTab(event, 'time-management')">
+                Time Management
+            </button>
+
+            <button type="button" class="tablinks"
+                    onclick="openTab(event, 'public-speaking')">
+                Public Speaking
+            </button>
+
+            <button type="button" class="tablinks"
+                    onclick="openTab(event, 'coding-skills')">
+                Coding Skills
+            </button>
+
+        </div>
+
+        <!-- INFORMATION SYSTEMS -->
+        <div id="IS" class="tabcontent">
+
+            <h3>Information Systems</h3>
+
+            <ul>
+                <li>
+                    Developing my front-end web development skills using
+                    <strong>HTML, CSS, and JavaScript.</strong>
+                </li>
+
+                <li>
+                    Learning responsive design to create user-friendly
+                    websites on different devices.
+                </li>
+
+                <li>
+                    Creating modern and accessible web interfaces.
+                </li>
+
+                <li>
+                    Learning how information systems help organize
+                    and manage data.
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- TIME MANAGEMENT -->
+        <div id="time-management" class="tabcontent">
+
+            <h3>Time Management</h3>
+
+            <ul>
+                <li>
+                    Learning to prioritize important tasks and achieve
+                    my goals.
+                </li>
+
+                <li>
+                    Planning my schedule to finish assignments before
+                    their deadlines.
+                </li>
+
+                <li>
+                    Organizing my daily activities to balance school
+                    and personal life.
+                </li>
+
+                <li>
+                    Avoiding procrastination and making productive
+                    use of my free time.
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- PUBLIC SPEAKING -->
+        <div id="public-speaking" class="tabcontent">
+
+            <h3>Public Speaking</h3>
+
+            <ul>
+                <li>
+                    Improving my ability to express my ideas clearly.
+                </li>
+
+                <li>
+                    Practicing presentations to communicate confidently.
+                </li>
+
+                <li>
+                    Building my confidence when speaking in front
+                    of an audience.
+                </li>
+
+                <li>
+                    Learning to organize my thoughts before speaking.
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- CODING SKILLS -->
+        <div id="coding-skills" class="tabcontent">
+
+            <h3>Coding Skills</h3>
+
+            <ul>
+                <li>
+                    Improving my coding skills by learning HTML,
+                    CSS, JavaScript, and Python.
+                </li>
+
+                <li>
+                    Practicing how to write clean and correct code.
+                </li>
+
+                <li>
+                    Learning to identify and fix programming errors.
+                </li>
+
+                <li>
+                    Exploring new coding techniques during my free time.
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Khesia Roquero. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<script>
+    // OPEN SELECTED TAB
+    function openTab(evt, tabName) {
+
+        const selectedTab = document.getElementById(tabName);
+
+        // Prevent errors if the ID does not exist
+        if (!selectedTab) {
+            console.error("Tab not found:", tabName);
+            return;
+        }
+
+        // Hide all tab content
+        const tabContents =
+            document.getElementsByClassName("tabcontent");
+
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].style.display = "none";
+        }
+
+        // Remove active class from all tab buttons
+        const tabLinks =
+            document.getElementsByClassName("tablinks");
+
+        for (let i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
+
+        // Display the selected tab
+        selectedTab.style.display = "block";
+
+        // Highlight the selected button
+        if (evt && evt.currentTarget) {
+            evt.currentTarget.classList.add("active");
+        }
+    }
+
+    // AUTOMATICALLY OPEN THE FIRST TAB
+    document.addEventListener("DOMContentLoaded", function () {
+        const firstTabButton = document.querySelector(".tablinks");
+
+        if (firstTabButton) {
+            firstTabButton.click();
+        }
+    });
+
+    // LOGOUT CONFIRMATION
+    function confirmLogout(event) {
+
+        if (event) {
+            event.preventDefault();
+        }
+
+        const logoutConfirmed =
+            confirm("Are you sure you want to log out?");
+
+        if (logoutConfirmed) {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    }
+</script>
+
+</body>
+</html>

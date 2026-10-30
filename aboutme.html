@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Webpage</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #ede7f6, #e3f2fd);
+            color: #30243a;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #59436b15;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #674477;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #8e6bb3;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            max-width: 850px;
+            margin: 65px auto;
+            padding: 55px 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px #59436b20;
+            animation: appear 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(35px, 7vw, 60px);
+            color: #76518e;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            line-height: 1.9;
+            color: #665a70;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 28px;
+            background: linear-gradient(135deg, #a77bc2, #76518e);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 8px 18px #76518e35;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px #76518e45;
+        }
+
+        .cards {
+            max-width: 1000px;
+            margin: 0 auto 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            padding: 30px 22px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 8px 25px #59436b12;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #76518e;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            color: #76518e;
+            font-size: 13px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 14px;
+            }
+
+            .hero {
+                margin: 35px auto;
+                padding: 38px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Welcome to My World ✨</h1>
+        <p>
+            Every great idea starts with creativity.
+            Explore my personal webpage, discover my interests,
+            and see how imagination meets technology.
+        </p>
+        <a href="#about" class="button">Explore More ♡</a>
+    </section>
+
+    <section class="cards">
+        <div class="card" id="about">
+            <h2>About Me 🌷</h2>
+            <p>A student who enjoys learning, discovering new ideas, and growing every day.</p>
+        </div>
+
+        <div class="card" id="skills">
+            <h2>My Skills 💻</h2>
+            <p>Creative thinking, communication, problem-solving, and programming.</p>
+        </div>
+
+        <div class="card" id="contact">
+            <h2>My Dreams 🌟</h2>
+            <p>To keep learning, achieve my goals, and build something meaningful.</p>
+        </div>
+    </section>
+
+    <footer>
+        Made with ♡ and creativity
+    </footer>
+
+</body>
+</html>

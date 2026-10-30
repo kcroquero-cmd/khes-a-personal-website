@@ -1,0 +1,426 @@
+/* =========================================
+   CONTACT PAGE
+   BABY BLUE + LAVENDER + PINK + PEACH
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.contact-background {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: #514B68;
+
+    background: linear-gradient(
+        135deg,
+        #BFE7FF 0%,
+        #DCCFFF 35%,
+        #FFD6E7 68%,
+        #FFE0C7 100%
+    );
+
+    background-attachment: fixed;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+body.contact-background header {
+    padding: 38px 20px;
+    text-align: center;
+
+    background: linear-gradient(
+        110deg,
+        #BFE7FF,
+        #DCCFFF,
+        #FFD6E7,
+        #FFE0C7
+    );
+}
+
+body.contact-background header h1 {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(27px, 4vw, 43px);
+    font-weight: 700;
+    color: #514B68;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+body.contact-background nav {
+    position: relative;
+    z-index: 100;
+    padding: 14px 20px;
+
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 4px 15px rgba(91, 79, 125, 0.08);
+}
+
+body.contact-background nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.contact-background nav li {
+    position: relative;
+}
+
+body.contact-background nav a {
+    display: inline-block;
+    padding: 10px 14px;
+
+    color: #514B68;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+body.contact-background nav a:hover {
+    background: linear-gradient(
+        90deg,
+        #DCCFFF,
+        #FFD6E7
+    );
+
+    color: #514B68;
+    transform: translateY(-2px);
+}
+
+/* ABOUT DROPDOWN */
+
+body.contact-background .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+    padding: 8px;
+
+    background: #FFFFFF;
+    border: 1px solid #F0E5F5;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 25px rgba(91, 79, 125, 0.15);
+}
+
+body.contact-background .dropdown:hover .dropdown-content,
+body.contact-background .dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+body.contact-background .dropdown-content a {
+    display: block;
+    padding: 12px;
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+/* LOGOUT BUTTON */
+
+body.contact-background nav a.logout-button {
+    background: linear-gradient(
+        90deg,
+        #DCCFFF,
+        #FFD6E7,
+        #FFE0C7
+    );
+
+    border-radius: 25px;
+}
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+body.contact-background #contact {
+    width: 100%;
+    padding: 55px 20px;
+}
+
+/* MAIN WHITE CONTAINER */
+
+body.contact-background .contact-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 30px;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(91, 79, 125, 0.13);
+}
+
+/* =========================================
+   LEFT SIDE - CONTACT FORM
+========================================= */
+
+body.contact-background .contact-form {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+}
+
+body.contact-background .contact-form h2 {
+    margin: 0 0 25px;
+
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    color: #C77F9F;
+}
+
+body.contact-background .contact-form label {
+    display: block;
+    margin: 16px 0 8px;
+
+    color: #514B68;
+    font-weight: 700;
+}
+
+/* INPUT FIELDS */
+
+body.contact-background .contact-form input,
+body.contact-background .contact-form textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 13px 16px;
+
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #514B68;
+
+    background: #FFFFFF;
+    border: 1px solid #D8D0EA;
+    border-radius: 20px;
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+body.contact-background .contact-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    border-radius: 16px;
+}
+
+body.contact-background .contact-form input::placeholder,
+body.contact-background .contact-form textarea::placeholder {
+    color: #A09AAF;
+}
+
+body.contact-background .contact-form input:focus,
+body.contact-background .contact-form textarea:focus {
+    border-color: #B9A7E8;
+    box-shadow: 0 0 0 4px rgba(185, 167, 232, 0.2);
+}
+
+/* SEND MESSAGE BUTTON */
+
+body.contact-background .contact-form button {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 28px;
+
+    background: linear-gradient(
+        90deg,
+        #BFE7FF,
+        #DCCFFF,
+        #FFD6E7,
+        #FFE0C7
+    );
+
+    color: #514B68;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.contact-background .contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(180, 151, 195, 0.25);
+}
+
+/* FORM ERROR MESSAGES */
+
+body.contact-background .contact-form .error {
+    display: block;
+    margin-top: 5px;
+    color: #C34F70;
+    font-size: 13px;
+}
+
+/* =========================================
+   RIGHT SIDE - CONTACT DETAILS
+========================================= */
+
+body.contact-background .contact-details {
+    width: 100%;
+    min-width: 0;
+    min-height: 420px;
+    padding: 28px 25px;
+
+    background: linear-gradient(
+        145deg,
+        #DCCFFF 0%,
+        #CBE9FF 50%,
+        #F8D8E8 100%
+    );
+
+    color: #45435F;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 17px;
+
+    overflow-wrap: anywhere;
+}
+
+body.contact-background .contact-details h3 {
+    margin: 5px 0 35px;
+
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    color: #45435F;
+}
+
+body.contact-background .contact-details p {
+    margin: 0 0 22px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+body.contact-background .contact-details strong {
+    font-weight: 700;
+}
+
+body.contact-background .contact-details hr {
+    width: 80%;
+    height: 2px;
+    margin: 18px 0;
+
+    border: none;
+    background: linear-gradient(
+        90deg,
+        #B9A7E8,
+        #E8A9C5,
+        #F3C5A5
+    );
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+body.contact-background footer {
+    padding: 20px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.55);
+    color: #514B68;
+    font-size: 13px;
+}
+
+body.contact-background footer p {
+    margin: 0;
+}
+
+body.contact-background .footer-divider {
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #BFE7FF,
+        #DCCFFF,
+        #FFD6E7,
+        #FFE0C7
+    );
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+    body.contact-background header {
+        padding: 28px 15px;
+    }
+
+    body.contact-background nav ul {
+        gap: 6px;
+    }
+
+    body.contact-background nav a {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    body.contact-background #contact {
+        padding: 28px 12px;
+    }
+
+    body.contact-background .contact-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 20px;
+    }
+
+    body.contact-background .contact-form {
+        padding: 5px;
+    }
+
+    body.contact-background .contact-form h2 {
+        font-size: 26px;
+    }
+
+    body.contact-background .contact-details {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    body.contact-background .contact-details h3 {
+        margin-bottom: 25px;
+        font-size: 25px;
+    }
+}

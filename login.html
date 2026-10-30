@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pastel Login & Sign Up</title>
+    <link rel="stylesheet" href="login_style.css">
+</head>
+
+<body>
+
+    <!-- Decorative pastel background -->
+    <div class="blob blob-blue"></div>
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-peach"></div>
+    <div class="blob blob-purple"></div>
+
+    <main class="page-wrapper">
+
+        <section class="form-container">
+
+            <div class="logo">✦</div>
+
+            <p class="welcome-text">WELCOME TO MY LITTLE SPACE</p>
+
+            <h1 id="formTitle">Welcome Back!</h1>
+
+            <p class="subtitle" id="formSubtitle">
+                Login to continue your journey.
+            </p>
+
+            <form id="authForm">
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <div class="show-password" id="showPasswordContainer">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showPassword">
+                        <span>Show password</span>
+                    </label>
+                </div>
+
+                <div class="input-group" id="confirmGroup" hidden>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        autocomplete="new-password"
+                    >
+                    <p id="passwordMatchMessage" aria-live="polite"></p>
+                </div>
+
+                <p id="errorMessage" role="alert"></p>
+
+                <button type="submit" id="submitButton">
+                    Login <span>→</span>
+                </button>
+
+                <p class="toggle-text" id="toggleText">
+                    Don't have an account?
+                    <a href="#" id="toggleLink">Sign Up</a>
+                </p>
+
+            </form>
+
+            <div class="bottom-decoration">
+                <span>♡</span>
+                <span>✧</span>
+                <span>♡</span>
+            </div>
+
+        </section>
+
+        <p class="footer-text">
+            Made with ♡ and a little pastel magic
+        </p>
+
+    </main>
+
+    <script>
+        const authForm = document.getElementById("authForm");
+        const formTitle = document.getElementById("formTitle");
+        const formSubtitle = document.getElementById("formSubtitle");
+        const usernameField = document.getElementById("username");
+        const passwordField = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const confirmGroup = document.getElementById("confirmGroup");
+        const showPassword = document.getElementById("showPassword");
+        const showPasswordContainer =
+            document.getElementById("showPasswordContainer");
+        const submitButton = document.getElementById("submitButton");
+        const toggleText = document.getElementById("toggleText");
+        const toggleLink = document.getElementById("toggleLink");
+        const errorMessage = document.getElementById("errorMessage");
+        const passwordMatchMessage =
+            document.getElementById("passwordMatchMessage");
+
+        let isLogin = true;
+
+        // This is a demo login system using browser storage.
+        // Do not use real or sensitive passwords here.
+        function showError(message) {
+            errorMessage.textContent = message;
+        }
+
+        function clearMessages() {
+            errorMessage.textContent = "";
+            passwordMatchMessage.textContent = "";
+            passwordMatchMessage.className = "";
+        }
+
+        function updateForm() {
+            authForm.reset();
+            clearMessages();
+
+            passwordField.type = "password";
+            confirmPassword.type = "password";
+            showPassword.checked = false;
+
+            if (isLogin) {
+                formTitle.textContent = "Welcome Back!";
+                formSubtitle.textContent =
+                    "Login to continue your journey.";
+
+                confirmGroup.hidden = true;
+                confirmPassword.required = false;
+                showPasswordContainer.hidden = false;
+                passwordField.autocomplete = "current-password";
+                submitButton.innerHTML = 'Login <span>→</span>';
+
+                toggleText.innerHTML =
+                    "Don't have an account? " +
+                    '<a href="#" id="toggleLink">Sign Up</a>';
+            } else {
+                formTitle.textContent = "Create Account";
+                formSubtitle.textContent =
+                    "Your little corner of the internet awaits.";
+
+                confirmGroup.hidden = false;
+                confirmPassword.required = true;
+                showPasswordContainer.hidden = true;
+                passwordField.autocomplete = "new-password";
+                submitButton.innerHTML = 'Create Account <span>→</span>';
+
+                toggleText.innerHTML =
+                    'Already have an account? ' +
+                    '<a href="#" id="toggleLink">Login</a>';
+
+
+            }
+        }
+
+        toggleLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            isLogin = !isLogin;
+            updateForm();
+        });
+
+        // Show or hide the password on the login form.
+        showPassword.addEventListener("change", function() {
+            passwordField.type = showPassword.checked ? "text" : "password";
+        });
+
+        // Give live feedback while confirming a password.
+        confirmPassword.addEventListener("input", function() {
+            const password = passwordField.value;
+            const confirmation = confirmPassword.value;
+
+            if (!confirmation) {
+                passwordMatchMessage.textContent = "";
+                passwordMatchMessage.className = "";
+            } else if (password === confirmation) {
+                passwordMatchMessage.textContent = "✓ Passwords match!";
+                passwordMatchMessage.className = "match";
+            } else {
+                passwordMatchMessage.textContent =
+                    "Passwords do not match yet.";
+                passwordMatchMessage.className = "no-match";
+            }
+        });
+
+        passwordField.addEventListener("input", function() {
+            if (!isLogin && confirmPassword.value) {
+                confirmPassword.dispatchEvent(new Event("input"));
+            }
+        });
+
+        authForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            clearMessages();
+
+            const username = usernameField.value.trim();
+            const password = passwordField.value;
+
+            if (!username || !password) {
+                showError("Please fill out all required fields.");
+                return;
+            }
+
+            // LOGIN
+            if (isLogin) {
+                const storedUsername = localStorage.getItem("username");
+                const storedPassword = localStorage.getItem("password");
+
+                if (
+                    username === storedUsername &&
+                    password === storedPassword
+                ) {
+                    localStorage.setItem("isLoggedIn", "true");
+                    alert("Welcome! You have successfully logged in.");
+                    window.location.href = "index.html";
+                } else {
+                    showError("Incorrect username or password.");
+                }
+
+                return;
+            }
+
+            // SIGN UP
+            const confirmation = confirmPassword.value;
+
+            if (password !== confirmation) {
+                showError("Your passwords do not match.");
+                return;
+            }
+
+            if (password.length < 6) {
+                showError("Please use at least 6 characters for your password.");
+                return;
+            }
+
+            if (localStorage.getItem("username") === username) {
+                showError("That username is already taken.");
+                return;
+            }
+
+            // Demo only: saves one account in this browser.
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+
+            alert("Account created! You can now log in.");
+
+            isLogin = true;
+            updateForm();
+        });
+
+        // Optional demo account for first-time testing.
+        // Remove this block if you do not want a default account.
+        if (!localStorage.getItem("username")) {
+            localStorage.setItem("username", "admin");
+            localStorage.setItem("password", "admin123");
+        }
+
+        updateForm();
+    </script>
+
+</body>
+</html>

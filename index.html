@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Khesia Roquero</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== PASTEL COLOR THEME ===== */
+        :root {
+            --blue: #dff6ff;
+            --lavender: #e8d9ff;
+            --pink: #ffe0ef;
+            --aqua: #c9f5eb;
+            --purple: #9470cf;
+            --deep-purple: #7250a8;
+            --text: #49405b;
+            --white: #ffffff;
+            --shadow: 0 12px 35px rgba(126, 96, 165, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background:
+                radial-gradient(circle at 5% 10%, #f8cfff99, transparent 30%),
+                radial-gradient(circle at 95% 35%, #aee6ff99, transparent 30%),
+                linear-gradient(
+                    135deg,
+                    #dff6ff,
+                    #e8d9ff,
+                    #ffe0ef,
+                    #d9fff2
+                );
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        h1, h2, h3 {
+            font-family: "Playfair Display", Georgia, serif;
+            line-height: 1.25;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 65px 20px 55px;
+            background: linear-gradient(
+                120deg,
+                #f3d5ff,
+                #d9d8ff,
+                #c6efff,
+                #d5fff0
+            );
+        }
+
+        header::before,
+        header::after {
+            content: "✦";
+            position: absolute;
+            color: #ffffffb8;
+            font-size: 55px;
+            animation: float 4s ease-in-out infinite;
+        }
+        header::before {
+            top: 18px;
+            left: 9%;
+        }
+
+        header::after {
+            right: 10%;
+            bottom: 10px;
+            animation-delay: 1s;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 1;
+            color: var(--deep-purple);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            max-width: 650px;
+            margin: auto;
+            color: #655578;
+            font-size: 1.05rem;
+        }
+
+        .header-tag {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 17px;
+            border: 1px solid #ffffff;
+            border-radius: 30px;
+            background: #ffffff8c;
+            color: var(--deep-purple);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #ffffffdc;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 20px #876ba514;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            list-style: none;
+            padding: 12px 18px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a,
+        .logout-button {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: var(--deep-purple);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        nav ul li a:hover,
+        .logout-button:hover {
+            color: #ffffff;
+            background: linear-gradient(120deg, #b998ef, #e5a9d6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            padding: 8px;
+            border: 1px solid #ffffff;
+            border-radius: 18px;
+            background: #fffffffa;
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-content a {
+            display: block;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+
+        .logout-button {
+            border: none;
+            background: linear-gradient(120deg, #c4a5f5, #f0b5dc);
+            cursor: pointer;
+        }
+        /* ===== GENERAL SECTIONS ===== */
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-heading {
+            margin-bottom: 14px;
+            color: var(--deep-purple);
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            text-align: center;
+            color: #716582;
+        }
+
+        .small-label {
+            display: block;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #9b79c5;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO SLIDER ===== */
+        .hero {
+            padding-top: 45px;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            border: 5px solid #ffffffd9;
+            border-radius: 30px;
+            background: #dcd0ff;
+            box-shadow: 0 20px 50px #7861a52a;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .slide {
+            position: relative;
+            min-width: 100%;
+            height: clamp(260px, 48vw, 520px);
+            overflow: hidden;
+            background: linear-gradient(135deg, #d8b8ff, #a9e6ff, #ffd6eb);
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: zoom-in;
+        }
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 35% 0 0;
+            background: linear-gradient(transparent, #21182bbd);
+            pointer-events: none;
+        }
+
+        .text-overlay {
+            position: absolute;
+            z-index: 2;
+            left: 7%;
+            right: 7%;
+            bottom: 35px;
+            color: white;
+            pointer-events: none;
+        }
+
+        .text-overlay h2 {
+            margin-bottom: 8px;
+            font-size: clamp(1.7rem, 4vw, 3rem);
+            text-shadow: 0 3px 15px #00000055;
+        }
+
+        .text-overlay p {
+            font-size: 1rem;
+            text-shadow: 0 2px 10px #00000070;
+        }
+
+        .slider-controls {
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            right: 0;
+            bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .slider-dot {
+            width: 11px;
+            height: 11px;
+            padding: 0;
+            border: 2px solid white;
+            border-radius: 50%;
+            background: #ffffff75;
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* ===== INTRODUCTION ===== */
+        .intro-card {
+            display: grid;
+            grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+            align-items: center;
+            gap: 40px;
+            max-width: 1050px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #ffffff;
+            border-radius: 30px;
+            background: #ffffffb8;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+        }
+
+        .profile-image {
+            overflow: hidden;
+            min-height: 300px;
+            border: 5px solid white;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #e5caff, #b8eaff, #ffd9eb);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            cursor: zoom-in;
+        }
+
+        .intro-text h2 {
+            margin-bottom: 16px;
+            color: var(--deep-purple);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+        .intro-text p {
+            margin-bottom: 16px;
+        }
+
+        blockquote {
+            margin-top: 22px;
+            padding: 16px 20px;
+            border-left: 4px solid #c3a2f3;
+            border-radius: 0 15px 15px 0;
+            background: linear-gradient(90deg, #f1e6ff, #ffeaf4);
+            color: #765b91;
+            font-family: "Playfair Display", Georgia, serif;
+            font-style: italic;
+        }
+
+        /* ===== FUN FACT CARDS ===== */
+        .funfact-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .funfact-card {
+            height: 240px;
+            perspective: 1000px;
+        }
+
+        .funfact-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.7s ease;
+        }
+
+        .funfact-card:hover .funfact-inner,
+        .funfact-card:focus-within .funfact-inner {
+            transform: rotateY(180deg);
+        }
+
+        .funfact-front,
+        .funfact-back {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            border: 2px solid #ffffffd9;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .funfact-front p {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .funfact-card:nth-child(1) .funfact-front {
+            background: linear-gradient(145deg, #d6efff, #cbb8ff);
+            color: #5c4b8b;
+        }
+
+        .funfact-card:nth-child(2) .funfact-front {
+            background: linear-gradient(145deg, #ffe0ef, #ffd9bd);
+            color: #915e80;
+        }
+
+        .funfact-card:nth-child(3) .funfact-front {
+            background: linear-gradient(145deg, #c9f5eb, #b9e1ff);
+            color: #467b7b;
+        }
+        .funfact-card:nth-child(4) .funfact-front {
+            background: linear-gradient(145deg, #e8d9ff, #f7d8f0);
+            color: #76549b;
+        }
+
+        .funfact-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #ffffff, #f5eaff, #e5f6ff);
+            color: #61516f;
+        }
+
+        .see-more-container {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .see-more-button {
+            display: inline-block;
+            padding: 13px 25px;
+            border: 2px solid white;
+            border-radius: 30px;
+            background: linear-gradient(120deg, #b99aef, #efaed8, #a9dfff);
+            box-shadow: 0 8px 20px #a18acb30;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .see-more-button:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ===== PERSONAL MESSAGE ===== */
+        .welcome-note {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 28px;
+            border: 1px solid white;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ffffffc9, #f3e6ffcc, #e3f7ffcc);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .welcome-note p {
+            max-width: 700px;
+            margin: 12px auto 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            position: relative;
+            margin-top: 20px;
+            padding: 35px 20px;
+            overflow: hidden;
+            background: linear-gradient(100deg, #ead9ff, #d8e8ff, #ffe0ef, #d5fff0);
+            text-align: center;
+            color: #6e5c82;
+        }
+        footer p + p {
+            margin-top: 6px;
+            font-size: 0.9rem;
+        }
+
+        .footer-divider {
+            height: 6px;
+            background: linear-gradient(90deg, #c77dff, #ffadd6, #91caff, #8de3d2);
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background: #21182bea;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 85vh;
+            border: 4px solid white;
+            border-radius: 18px;
+            object-fit: contain;
+            box-shadow: 0 20px 60px #00000055;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 28px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        #backToTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 90;
+            width: 48px;
+            height: 48px;
+            border: 2px solid white;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b99aef, #e9a9d6);
+            color: white;
+            font-size: 22px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: 0.3s ease;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(10deg);
+            }
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-card,
+        .welcome-note {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 900px) {
+            .funfact-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .intro-card {
+                gap: 25px;
+            }
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 600px) {
+            header {
+                padding: 50px 18px 40px;
+            }
+
+            section {
+                padding: 45px 18px;
+            }
+
+            nav ul {
+                gap: 3px;
+                padding: 10px 6px;
+            }
+
+            nav ul li a,
+            .logout-button {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+
+            .dropdown-content {
+                left: -35px;
+                min-width: 200px;
+            }
+            .slide {
+                height: 300px;
+            }
+
+            .text-overlay {
+                bottom: 35px;
+            }
+
+            .text-overlay p {
+                font-size: 0.9rem;
+            }
+
+            .funfact-container {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+            }
+
+            .funfact-card {
+                height: 210px;
+            }
+
+            .intro-card {
+                grid-template-columns: 1fr;
+                padding: 18px;
+            }
+
+            .profile-image,
+            .profile-image img {
+                min-height: 250px;
+                max-height: 350px;
+            }
+
+            .welcome-note {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="home">
+        <span class="header-tag">✧ MY PERSONAL SPACE ✧</span>
+        <h1>Welcome to My Personal Website</h1>
+        <p>A little corner of my world filled with dreams, creativity, learning, and pastel colors. ♡</p>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn" aria-haspopup="true">ABOUT ▾</a>
+                <div class="dropdown-content">
+                    <a href="skills.html">Skills I'm Developing</a>
+                    <a href="goals.html">My Goals as a Student</a>
+                    <a href="funfacts.html">Fun Facts About Me</a>
+                </div>
+            </li>
+
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+
+            <li>
+                <button class="logout-button" type="button" onclick="confirmLogout()">
+                    LOG OUT
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO SLIDER ===== -->
+    <section class="hero" aria-label="Welcome slideshow">
+        <span class="small-label">WELCOME TO MY WORLD</span>
+
+        <div class="slider">
+            <div class="slides" id="slides">
+
+                <div class="slide">
+                    <img src="c:\Users\khesi\Downloads\image2.jpg" alt="Welcome to my personal website" data-lightbox>
+                    <div class="text-overlay">
+                        <h2>Welcome to My Website! ✨</h2>
+                        <p>Discover my interests, passions, and dreams.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="c:\Users\khesi\Downloads\img3.jpg" alt="A pretty view" data-lightbox>
+                    <div class="text-overlay">
+                        <h2>Beautiful Views 🌷</h2>
+                        <p>Finding beauty in the little things in life.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="c:\Users\khesi\Downloads\img4.jpeg" alt="A peaceful dark atmosphere" data-lightbox>
+                    <div class="text-overlay">
+                        <h2>Peaceful Moments 🌙</h2>
+                        <p>Every moment is a chance to grow and create.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slider-controls" id="sliderControls" aria-label="Choose slide">
+                <button class="slider-dot active" type="button" aria-label="Slide 1"></button>
+                <button class="slider-dot" type="button" aria-label="Slide 2"></button>
+                <button class="slider-dot" type="button" aria-label="Slide 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FUN FACTS ===== -->
+    <section id="funfacts">
+        <span class="small-label">A LITTLE ABOUT ME</span>
+        <h2 class="section-heading">Fun Facts About Me ♡</h2>
+
+        <p class="section-description">
+            Welcome to my Fun Facts About Me! Here, you'll get a glimpse into my passions,
+            interests, and the little quirks that make me who I am.
+            Hover over each card to discover more!
+        </p>
+
+        <div class="funfact-container">
+
+            <div class="funfact-card" tabindex="0">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>💻<br>I love watching k drama</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>I love watching K-dramas because they make me feel different emotions, teach me valuable 
+                            life lessons, and let me enjoy beautiful 
+                            stories about love, friendship, and family. 💗🎬!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="funfact-card" tabindex="0">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>☕<br>Coke Addicted!</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>I’m a Coke lover because I enjoy its refreshing, fizzy taste, especially when I’m 
+                            relaxing, eating my favorite food, or hanging out with friends. 🥤❤️!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="funfact-card" tabindex="0">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>🎧<br>Music and exploring coding Combo!</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>I love listening to music while exploring coding because music inspires my creativity,
+                             helps me stay focused, and makes learning new programming skills more enjoyable. 🎧💻💜
+!</p>
+                        </div>
+                </div>
+            </div>
+
+            <div class="funfact-card" tabindex="0">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>🌟<br>Goal Setter!</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>I list all of my dreams and I'm always strives to improve myself,achieve my dreams,and turn my goals into reality through hard work,dedication and determination!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="see-more-container">
+            <a href="funfacts.html" class="see-more-button">See More Fun Facts →</a>
+        </div>
+    </section>
+
+    <!-- ===== PERSONAL INTRODUCTION ===== -->
+    <section id="about">
+        <span class="small-label">GET TO KNOW ME</span>
+        <h2 class="section-heading">A Little Introduction</h2>
+
+        <div class="intro-card">
+            <div class="profile-image">
+                <img src="c:\Users\khesi\Downloads\ac0333ac-73e8-423b-8e22-2b57c15f31bc.jpg" data-lightbox>
+            </div>
+
+            <div class="intro-text">
+                <h2>Hi, I'm Khesia! ♡</h2>
+
+                <p>
+                    I'm an Information Systems student with a big dream. I'm excited to graduate and finish my course so 
+                    i can chase my dream to become a flight attendant.
+                </p>
+
+                <p>
+                    I am interests  in becoming a flight attendant beacuase i love traveling , explore new places ,
+                     i want to visit my dream countries and i like to meet people from different places and 
+                     culture and providing excellent service to passengers.✈️💙!
+                </p>
+
+                <blockquote>
+                    "The only way to do great work is to love what you do."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MOTIVATIONAL NOTE ===== -->
+    <section>
+        <div class="welcome-note">
+            <span class="small-label">A REMINDER TO MYSELF</span>
+            <h2 class="section-heading">Dream Big, Start Small ✨</h2>
+            <p>
+                Every skill I learn, every challenge I face, and every small step I take
+                brings me closer to my dreams. My journey is still growing, and that's
+                something worth celebrating.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <h3>Made with ♡ and a little pastel magic</h3>
+        <p>&copy; <span id="year"></span> Khesia Roquero. All rights reserved.</p>
+        <p>Keep learning. Keep dreaming. Keep growing. 🌷</p>
+    </footer>
+    <div class="footer-divider"></div>
+
+    <!-- ===== IMAGE LIGHTBOX ===== -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="close" type="button" aria-label="Close image preview">&times;</button>
+        <img class="lightbox-content" id="lightboxImage" src="c:\Users\khesi\Downloads\ac0333ac-73e8-423b-8e22-2b57c15f31bc.jpg">
+    </div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+    <script>
+        // ===== IMAGE SLIDER =====
+        const slides = document.getElementById("slides");
+        const dots = document.querySelectorAll(".slider-dot");
+        const slider = document.querySelector(".slider");
+
+        let currentSlide = 0;
+        let slideTimer;
+
+        function showSlide(index) {
+            currentSlide = index;
+
+            slides.style.transform =
+               ' translateX(-${currentSlide * 100}%)';
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === currentSlide);
+                dot.setAttribute("aria-pressed", i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % dots.length);
+        }
+
+        function startSlider() {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(nextSlide, 3500);
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                showSlide(index);
+                startSlider();
+            });
+        });
+
+        slider.addEventListener("mouseenter", () => {
+            clearInterval(slideTimer);
+        });
+
+        slider.addEventListener("mouseleave", startSlider);
+
+        slider.addEventListener("focusin", () => {
+            clearInterval(slideTimer);
+        });
+
+        slider.addEventListener("focusout", startSlider);
+
+        startSlider();
+
+        // ===== IMAGE LIGHTBOX =====
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const closeButton = document.querySelector(".close");
+
+        document.querySelectorAll("[data-lightbox]").forEach(image => {
+            image.addEventListener("click", () => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightbox.classList.add("open");
+                closeButton.focus();
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove("open");
+            lightboxImage.src = "";
+        }
+
+        closeButton.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", event => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+
+        // ===== LOGOUT CONFIRMATION =====
+        function confirmLogout() {
+            const answer = window.confirm("Are you sure you want to log out?");
+
+            if (answer) {
+                localStorage.removeItem("isLoggedIn");
+                window.location.href = "login.html";
+            }
+        }
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+            backToTop.classList.toggle("visible", window.scrollY > 300);
+        });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // ===== CURRENT YEAR =====
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
